@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT schedule (year|term|set|program|days|periods|courses)*>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT term (#PCDATA)>
+<!ELEMENT set (#PCDATA)>
+<!ELEMENT program (#PCDATA)>
+<!ELEMENT days (day)*>
+<!ELEMENT day (booking)*>
+<!ATTLIST day
+        name CDATA #REQUIRED>
+<!ELEMENT booking (room|instructor)*>
+<!ATTLIST booking
+        course CDATA #IMPLIED
+        day CDATA #IMPLIED
+        time CDATA #IMPLIED
+        type CDATA #REQUIRED>
+<!ELEMENT room (building|number)*>
+<!ELEMENT building (#PCDATA)>
+<!ELEMENT number (#PCDATA)>
+<!ELEMENT instructor (#PCDATA)>
+<!ELEMENT periods (timeslot)*>
+<!ELEMENT timeslot (booking)*>
+<!ATTLIST timeslot
+        time CDATA #REQUIRED>
+<!ELEMENT courses (course)*>
+<!ELEMENT course (booking)*><!ATTLIST course
+                id CDATA #REQUIRED>
