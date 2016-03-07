@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE schedule SYSTEM "schedule.dtd">
+<schedule>
+    <year>2016</year>
+    <term>Winter</term>
+    <set>4S</set>
+    <program>CST</program>
+    <days>
+        <day name="Monday">
+            <booking time="9:30" course="BLAW3600" type="lab">
+                <room>
+                    <building>SW3</building>
+                    <number>4785</number>
+                </room>
+                <instructor>Catherine Ryan</instructor>
+            </booking>
+            <booking time="11:30" course="COMP4735" type="lecture">
+                <room>
+                    <building>SW1</building>
+                    <number>1205</number>
+                </room>
+                <instructor>Mirela Gutica</instructor>
+            </booking>
+            <booking time="12:30" course="COMP4735" type="lab">
+                <room>
+                    <building>SE12</building>
+                    <number>320</number>
+                </room>
+                <instructor>Mirela Gutica</instructor>
+            </booking>
+        </day>
+    </days>
+    <periods>
+        <timeslot time="8:30">
+            <booking day="Tuesday" course="COMP4977" type="seminar">
+                <room>
+                    <building>SE12</building>
+                    <number>325</number>
+                </room>
+                <instructor>Darcy Smith</instructor>
+            </booking>
+            <booking day="Thursday" course="COMP4976" type="seminar">
+                <room>
+                    <building>SE12</building>
+                    <number>308</number>
+                </room>
+                <instructor>Medhat Elmasry</instructor>
+            </booking>
+            <booking day="Friday" course="BLAW3600" type="lecture">
+                <room>
+                    <building>SW5</building>
+                    <number>1840</number>
+                </room>
+                <instructor>>Catherine Ryan</instructor>
+            </booking>
+        </timeslot>
+    </periods>
+    <courses>
+        <course id="COMP4711">
+            <booking time="14:30" day="Tuesday" type="lecture">
+                <instructor>Jim Parry</instructor>
+                <room>
+                    <building>SW5</building>
+                    <number>1840</number>
+                </room>
+            </booking>
+            <booking time="9:30" day="Wednesday" type="lab">
+                <instructor>Jim Parry</instructor>
+                <room>
+                    <building>SE12</building>
+                    <number>320</number>
+                </room>
+            </booking>
+        </course>
+    </courses>
+</schedule>
