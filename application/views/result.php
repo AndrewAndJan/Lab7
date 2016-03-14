@@ -1,13 +1,6 @@
 <div class="container">
-    <div class="row">
-        <div class="col-lg-12 col-md-12" style="text-align: center;">
-            <form action="/result" method="post">
-                {daysSearch}
-                {periodSearch}
-                <button type="submit">search</button>
-            </form>
-        </div>
-    </div>
+    
+    <h1 style="text-align:center;">{resultBingo}</h1>
     
     <div class="row">
         <div class="col-lg-4 col-md-4">
