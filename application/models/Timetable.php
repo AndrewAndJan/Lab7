@@ -31,9 +31,8 @@ class Timetable extends CI_Model {
                 $type =  (string) $booking["type"];
                 $instructor = (string) $booking->instructor;
                 $timeEnd = (string) $booking->timeEnd;
-
+                
                 $booking = new Booking($time,$course,$type,$specDay, $room,$instructor, $timeEnd);
-
                 $this->days[] = $booking;
             }
         }
@@ -52,9 +51,9 @@ class Timetable extends CI_Model {
                 $type =  (string) $booking["type"];
                 $instructor = (string) $booking->instructor;
                 $timeEnd = (string) $booking->timeEnd;
-
+                
+                // changed
                 $booking = new Booking($time,$specCourse,$type,$specDay, $room,$instructor, $timeEnd);
-
                 $this->courses[] = $booking;
             }
         }
@@ -74,26 +73,94 @@ class Timetable extends CI_Model {
                 $type =  (string) $booking["type"];
                 $instructor = (string) $booking->instructor;
                 $timeEnd = (string) $booking->timeEnd;
-
+                
                 $booking = new Booking($specTimeSlot,$course,$type,$specDay, $room,$instructor, $timeEnd);
-
                 $this->periods[] = $booking;
             }
         }
     }
-
+    
     function getDays(){
         return $this->days;
     }
-
+    
     function getCourses(){
         return $this->courses;
     }
-
+    
     function getPeriods(){
         return $this->periods;
     }
-
+    
+    function getListOfDays(){
+        $listOfDays = array('Monday' => 'Monday', 'Tuesday' => 'Tuesday', 'Wednesday' => 'Wednesday', 'Thursday' => 'Thursday', 'Friday' => 'Friday');
+        return $listOfDays;
+    }
+    
+    function getListOfPeriods(){
+        $periods = array (
+            "8:30-10:30"    => "8:30 to 10:30",
+            "9:30-11:30"    => "9:30 to 11:30",
+            "10:30-12:20"   => "10:30 to 12:20",
+            "11:30-12:30"   => "11:30 to 12:30",
+            "12:30-14:20"   => "12:30 to 14:20",
+            "14:30-15:30"   => "14:30 to 13:30",
+            "14:30-17:20"   => "14:30 to 17:20"
+        ); 
+        
+        return $periods;
+    }
+    
+    
+    function checkCourses($specDay, $specTimeSlot){
+        $times = explode("-", $specTimeSlot);
+        
+        foreach($this->courses as $booking){
+            if($booking->day == $specDay && $booking->time == $times[0] 
+                && $booking->timeEnd == $times[1]){
+                return $booking;       
+            }
+        }
+        return null;
+    }
+    
+    function checkPeriods($specDay, $specTimeSlot){
+                $times = explode("-", $specTimeSlot);
+        
+        foreach($this->periods as $booking){
+            if($booking->day == $specDay && $booking->time == $times[0] 
+                && $booking->timeEnd == $times[1]){
+                return $booking;       
+            }
+        }
+        return null;
+    }
+    
+    function checkDays($specDay, $specTimeSlot){
+        $times = explode("-", $specTimeSlot);
+        
+        foreach($this->days as $booking){
+            if($booking->day == $specDay && $booking->time == $times[0] 
+                && $booking->timeEnd == $times[1]){
+                return $booking;       
+            }
+        }
+        return null;
+    }
+    
+    function compareBooking($booking1, $booking2){
+        if($booking1->day == $booking2->day 
+            && $booking1->time == $booking2->time
+            && $booking1->course == $booking2->course
+            && $booking1->instructor == $booking2->instructor
+            && $booking1->building == $booking2->building
+            && $booking1->room == $booking2->room
+            && $booking1->type == $booking2->type
+            && $booking1->timeEnd == $booking2->timeEnd){
+                return true;
+            }
+        return false;
+    }
 }
 
 class Booking extends CI_Model {
@@ -105,16 +172,18 @@ class Booking extends CI_Model {
     public $room;
     public $instructor;
     public $timeEnd;
-
+    public $building;
+    
     function __construct($time, $course, $type, $day,$room, $instructor, $timeEnd)
     {
-        $this->time         = $time;
-        $this->course       = $course;
-        $this->type         = $type;
-        $this->day          = $day;
-        $this->room         = $room;
-        $this->instructor   = $instructor;
-        $this->timeEnd      = $timeEnd;
+        $this->time             = $time;
+        $this->course           = $course;
+        $this->type             = $type;
+        $this->day              = $day;
+        $this->room             = $room->number;
+        $this->instructor       = $instructor;
+        $this->timeEnd          = $timeEnd; 
+        $this->building         = $room->building; 
     }
 
 }
