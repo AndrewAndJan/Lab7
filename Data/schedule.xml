@@ -13,6 +13,7 @@
                     <number>4785</number>
                 </room>
                 <instructor>Catherine Ryan</instructor>
+                <timeEnd>11:30</timeEnd>
             </booking>
             <booking time="11:30" course="COMP4735" type="lecture">
                 <room>
@@ -20,6 +21,7 @@
                     <number>1205</number>
                 </room>
                 <instructor>Mirela Gutica</instructor>
+                <timeEnd>12:30</timeEnd>
             </booking>
             <booking time="12:30" course="COMP4735" type="lab">
                 <room>
@@ -27,6 +29,7 @@
                     <number>320</number>
                 </room>
                 <instructor>Mirela Gutica</instructor>
+                <timeEnd>2:30</timeEnd>
             </booking>
         </day>
     </days>
@@ -38,6 +41,7 @@
                     <number>325</number>
                 </room>
                 <instructor>Darcy Smith</instructor>
+                <timeEnd>10:30</timeEnd>
             </booking>
             <booking day="Thursday" course="COMP4976" type="seminar">
                 <room>
@@ -45,13 +49,25 @@
                     <number>308</number>
                 </room>
                 <instructor>Medhat Elmasry</instructor>
+                <timeEnd>10:30</timeEnd>
             </booking>
             <booking day="Friday" course="BLAW3600" type="lecture">
                 <room>
                     <building>SW5</building>
                     <number>1840</number>
                 </room>
-                <instructor>>Catherine Ryan</instructor>
+                <instructor>Catherine Ryan</instructor>
+                <timeEnd>10:30</timeEnd>
+            </booking>
+        </timeslot>
+        <timeslot time="9:30">
+            <booking day="Monday" course="BLAW3600" type="lab">
+                <room>
+                    <building>SW3</building>
+                    <number>4785</number>
+                </room>
+                <instructor>Catherine Ryan</instructor>
+                <timeEnd>11:30</timeEnd>
             </booking>
         </timeslot>
     </periods>
@@ -63,6 +79,7 @@
                     <building>SW5</building>
                     <number>1840</number>
                 </room>
+                <timeEnd>15:30</timeEnd>
             </booking>
             <booking time="9:30" day="Wednesday" type="lab">
                 <instructor>Jim Parry</instructor>
@@ -70,6 +87,18 @@
                     <building>SE12</building>
                     <number>320</number>
                 </room>
+                 <timeEnd>11:30</timeEnd>
+            </booking> 
+        </course>
+        <course id="BLAW3600">
+        
+            <booking time="9:30" day="Monday" type="lab">
+                <room>
+                    <building>SW3</building>
+                    <number>4785</number>
+                </room>
+                <instructor>Catherine Ryan</instructor>
+                <timeEnd>11:30</timeEnd>
             </booking>
         </course>
     </courses>
