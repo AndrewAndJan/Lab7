@@ -21,7 +21,7 @@ class Welcome extends Application {
 	public function index()
 	{
         $this->load->model('Timetable');
-        
+
         $this->data["title"] = "CST Timetable";
         $this->data['pagebody'] = 'welcome';
         
@@ -30,6 +30,5 @@ class Welcome extends Application {
         $this->data["periods"] = $this->Timetable->getPeriods();
         
         $this->render();
-		
 	}
 }
